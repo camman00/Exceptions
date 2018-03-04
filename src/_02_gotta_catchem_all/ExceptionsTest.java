@@ -13,7 +13,7 @@ class ExceptionsTest {
 	@Test
 	public void testIndexOOBException() {
 		int[] vars = {0, 1, 2, 3};
-			
+		
 		try {
 			vars[0] = 4;
 			assertArrayEquals(vars, new int[] {4, 1, 2, 3});
@@ -41,8 +41,15 @@ class ExceptionsTest {
 	
 	//5. Complete the JUnit test method to test the reverseStringMethod.
 	@Test
-	public void testReverseString(String s) {
-		
+	public String testReverseString(String s) {
+		if(s.isEmpty()) {
+			throw new IllegalStateException();
+		}
+		String reverse = "";
+		for(char c : s.toCharArray()) {
+			reverse = c + reverse;
+		}
+		return reverse;
 	}
 	
 	
